@@ -1,10 +1,7 @@
 from django.db import models
 
-# Create your models here.
-
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.db import models
-
+# Create your models here.
 
 class WeiboPost(models.Model):
     mid = models.CharField(max_length=50, unique=True, verbose_name="微博ID")
@@ -105,7 +102,7 @@ class Search(models.Model):
 
 class Module(models.Model):
     title = models.CharField(max_length=100)
-    icon = models.URLField()  # 或者用 ImageField 存储图片上传路径
+    icon = models.URLField()
     link = models.CharField(max_length=255)
 
     def __str__(self):

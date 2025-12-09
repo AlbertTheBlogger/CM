@@ -11,31 +11,9 @@ import os
 import django
 from .models import (WeiboPost)
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CommentManager.settings')  # 替换为你的项目名称
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CommentManager .settings')  # 替换为你的项目名称
 django.setup()
 
-"""def get_html_by_keyword(keyword):
-    # 设置Edge选项
-    edge_options = Options()
-    edge_options.use_chromium = True
-    # 如果需要无头模式（无界面运行）
-    # edge_options.add_argument("--headless")
-    # 指定Edge WebDriver的路径
-    service = Service(executable_path='D:\edgedriver\msedgedriver.exe')
-    # 初始化WebDriver
-    driver = webdriver.Edge(service=service, options=edge_options)
-    # 访问微博页面
-    driver.get(f"https://s.weibo.com/weibo?q={keyword}&xsort=hot&Refer=hotmore")
-    # 等待页面加载完成
-    time.sleep(15)  # 可以根据实际情况调整等待时间
-    # 获取页面源代码
-    html = driver.page_source
-    # 保存到文件
-    with open(f'关键词数据.txt', 'w', encoding='utf-8') as file:
-        file.write(html)
-        print("OK")
-    # 关闭浏览器
-    driver.quit()"""
 
 
 def get_html_by_keyword(keyword):
