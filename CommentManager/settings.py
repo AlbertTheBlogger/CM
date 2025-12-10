@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'fetch',
     'analyse',
     'rewrite',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +75,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CommentManager.wsgi.application'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
+    # 可选：后续可加认证、分页等
+}
+
+
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # ⚠️ 必须放在最顶部！
+] + MIDDLEWARE  # 保留原有 middleware
+
+CORS_ALLOW_ALL_ORIGINS = True  # 开发用；生产环境请改用 CORS_ALLOWED_ORIGINS
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
